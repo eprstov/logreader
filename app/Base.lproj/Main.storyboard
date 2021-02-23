@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController storyboardIdentifier="Main" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="url" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="boh-7H-AAs" userLabel="locatorField">
+                                <rect key="frame" x="20" y="49" width="374" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="go" textContentType="url"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="zal-VS-sEv"/>
+                                </connections>
+                            </textField>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="onDrag" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="hyr-4Y-cLS" userLabel="resultsTable">
+                                <rect key="frame" x="0.0" y="172" width="414" height="724"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <sections/>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="f5W-cv-MEo"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="PMe-nS-kmu"/>
+                                </connections>
+                            </tableView>
+                            <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="filter" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="SEL-1b-71f" userLabel="filterField">
+                                <rect key="frame" x="20" y="108" width="374" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="alphabet" returnKeyType="search" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="uPd-2y-dSf"/>
+                                </connections>
+                            </textField>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="downloaded source.log, 100Mb" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0La-sz-nzy" userLabel="urlStatusLabel">
+                                <rect key="frame" x="191.5" y="84" width="202.5" height="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" systemColor="linkColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="found 0 entries" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1fe-fP-XUL" userLabel="filterStatusLabel">
+                                <rect key="frame" x="296" y="143" width="98" height="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" systemColor="linkColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="Qpa-v7-sqW" userLabel="filterProgress">
+                                <rect key="frame" x="364" y="115" width="20" height="20"/>
+                            </activityIndicatorView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="Jx5-c2-pwV" userLabel="urlProgress">
+                                <rect key="frame" x="364" y="56" width="20" height="20"/>
+                            </activityIndicatorView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Qpa-v7-sqW" firstAttribute="trailing" secondItem="SEL-1b-71f" secondAttribute="trailing" constant="-10" id="4Xp-nH-jTC"/>
+                            <constraint firstItem="1fe-fP-XUL" firstAttribute="trailing" secondItem="SEL-1b-71f" secondAttribute="trailing" id="6H6-pb-F8Z"/>
+                            <constraint firstItem="0La-sz-nzy" firstAttribute="top" secondItem="boh-7H-AAs" secondAttribute="bottom" constant="1" id="Cg7-ni-7sN"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="boh-7H-AAs" secondAttribute="trailing" constant="20" id="D4N-Qb-uW9"/>
+                            <constraint firstAttribute="bottom" secondItem="hyr-4Y-cLS" secondAttribute="bottom" id="FLy-Au-BKP"/>
+                            <constraint firstItem="Qpa-v7-sqW" firstAttribute="centerY" secondItem="SEL-1b-71f" secondAttribute="centerY" id="JeM-sC-GEX"/>
+                            <constraint firstItem="Jx5-c2-pwV" firstAttribute="trailing" secondItem="boh-7H-AAs" secondAttribute="trailing" constant="-10" id="Kbj-Mo-1Gc"/>
+                            <constraint firstItem="boh-7H-AAs" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="5" id="LS3-zj-Hnw"/>
+                            <constraint firstItem="1fe-fP-XUL" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="leading" symbolic="YES" id="LzU-du-lmH"/>
+                            <constraint firstItem="boh-7H-AAs" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="NNB-Kn-E1n"/>
+                            <constraint firstItem="Jx5-c2-pwV" firstAttribute="centerY" secondItem="boh-7H-AAs" secondAttribute="centerY" id="Nyh-Ms-q1E"/>
+                            <constraint firstItem="0La-sz-nzy" firstAttribute="trailing" secondItem="boh-7H-AAs" secondAttribute="trailing" id="TOM-e1-ThB"/>
+                            <constraint firstItem="1fe-fP-XUL" firstAttribute="top" secondItem="SEL-1b-71f" secondAttribute="bottom" constant="1" id="akB-gW-9cr"/>
+                            <constraint firstItem="SEL-1b-71f" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="bHm-ba-Ek2"/>
+                            <constraint firstItem="SEL-1b-71f" firstAttribute="top" secondItem="boh-7H-AAs" secondAttribute="bottom" constant="25" id="eAr-k5-fSB"/>
+                            <constraint firstItem="0La-sz-nzy" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="leading" symbolic="YES" id="gdO-WQ-YFa"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="SEL-1b-71f" secondAttribute="trailing" constant="20" id="h6B-ns-KR7"/>
+                            <constraint firstItem="hyr-4Y-cLS" firstAttribute="left" secondItem="8bC-Xf-vdC" secondAttribute="left" id="jhm-VW-yWv"/>
+                            <constraint firstItem="hyr-4Y-cLS" firstAttribute="top" secondItem="SEL-1b-71f" secondAttribute="bottom" constant="30" id="lsi-Hk-nh2"/>
+                            <constraint firstAttribute="trailing" secondItem="hyr-4Y-cLS" secondAttribute="trailing" id="pMX-vm-b9k"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="filterField" destination="SEL-1b-71f" id="gHf-lL-PYL"/>
+                        <outlet property="filterProgress" destination="Qpa-v7-sqW" id="q9M-fw-3OK"/>
+                        <outlet property="filterStatusLabel" destination="1fe-fP-XUL" id="pAS-k7-RcC"/>
+                        <outlet property="resultsView" destination="hyr-4Y-cLS" id="mGN-OY-yTY"/>
+                        <outlet property="urlField" destination="boh-7H-AAs" id="kFV-SH-brp"/>
+                        <outlet property="urlProgress" destination="Jx5-c2-pwV" id="eeS-jC-d4U"/>
+                        <outlet property="urlStatusLabel" destination="0La-sz-nzy" id="nEI-gK-M7y"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="137.68115942028987" y="123.88392857142857"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="linkColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
